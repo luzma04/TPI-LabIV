@@ -29,10 +29,16 @@
                         <a class="nav-link" href="#">Devoluciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Roles</a>
+                        <a class="nav-link" href="#">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Administradores</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Estadisticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Log in</a>
                     </li>
                     
                 </ul>
