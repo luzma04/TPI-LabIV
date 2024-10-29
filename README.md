@@ -42,3 +42,5 @@ Asegúrate de que MySQL y Apache estén corriendo en XAMPP o tu servidor local. 
 7.
     ```bash
     npm run dev
+
+5. **Asegurate de tener el archivo .env**
