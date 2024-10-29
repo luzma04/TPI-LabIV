@@ -59,19 +59,7 @@
                     </header>
 
         
-        <x-card>
-            <x-slot name="header">
-                <h2>
-                    Título de la Card
-                </h2>
-            </x-slot>
-
-            <p>Este es el contenido del cuerpo de la card.</p>
-
-            <x-slot name="footer" >
-                <p>Este es el pie de página de la card.</p>
-            </x-slot>
-        </x-card>
+        
 
     </body>
 </html>
