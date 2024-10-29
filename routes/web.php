@@ -4,6 +4,11 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+//Cada ruta de la app tiene una funcion de un controlador que determina que vista devuelve esa ruta
+
+// Importa el orden en el que se definen las rutas.
+
+// Vista por defecto, deberia ser el login?
 Route::get('/', function () {
     return view('welcome');
 });
