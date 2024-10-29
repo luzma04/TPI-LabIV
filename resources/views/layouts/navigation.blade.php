@@ -40,7 +40,6 @@
                     <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
                         {{ __('Administradores') }}
                     </x-nav-link>
-                    
                     <!-- Enlace a Libros -->
                     <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
                         {{ __('Estadisticas') }}
