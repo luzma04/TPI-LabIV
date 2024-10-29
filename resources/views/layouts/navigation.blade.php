@@ -20,6 +20,31 @@
                     <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
                         {{ __('Libros') }}
                     </x-nav-link>
+
+                    <!-- Enlace a Libros -->
+                    <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
+                        {{ __('Prestamos') }}
+                    </x-nav-link>
+
+                    <!-- Enlace a Libros -->
+                    <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
+                        {{ __('Devoluciones') }}
+                    </x-nav-link>
+
+                    <!-- Enlace a Libros -->
+                    <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
+                        {{ __('Clientes') }}
+                    </x-nav-link>
+
+                    <!-- Enlace a Libros -->
+                    <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
+                        {{ __('Administradores') }}
+                    </x-nav-link>
+                    
+                    <!-- Enlace a Libros -->
+                    <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
+                        {{ __('Estadisticas') }}
+                    </x-nav-link>
                 </div>
             </div>
 
