@@ -22,26 +22,26 @@
                     </x-nav-link>
 
                     <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
+                    <x-nav-link :href="route('loans')" :active="request()->routeIs('loans')">
                         {{ __('Prestamos') }}
                     </x-nav-link>
 
                     <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
+                    <x-nav-link :href="route('returns')" :active="request()->routeIs('returns')">
                         {{ __('Devoluciones') }}
                     </x-nav-link>
 
                     <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
+                    <x-nav-link :href="route('clients')" :active="request()->routeIs('clients')">
                         {{ __('Clientes') }}
                     </x-nav-link>
 
                     <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
+                    <x-nav-link :href="route('admins')" :active="request()->routeIs('admins')">
                         {{ __('Administradores') }}
                     </x-nav-link>
                     <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
+                    <x-nav-link :href="route('stadistics')" :active="request()->routeIs('stadistics')">
                         {{ __('Estadisticas') }}
                     </x-nav-link>
                 </div>

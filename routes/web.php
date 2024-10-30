@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Loan;
 use Illuminate\Support\Facades\Route;
 
 //Cada ruta de la app tiene una funcion de un controlador que determina que devuelve esa ruta
@@ -35,21 +36,25 @@ Route::middleware('auth')->group(function () {
     Route::delete('/books/{book}/delete', [BookController::class,'delete'])->name('delete');
 
 
-    Route::get('/Prestamos', function(){
-        return 'Prestamos';
-    });
-    Route::get('/Devoluciones', function(){
-        return 'Devoluciones';
-    });
-    Route::get('/Clientes', function(){
-        return 'Clientes';
-    });
-    Route::get('/Administradores', function(){
-        return 'Administradores';
-    });
-    Route::get('/Estadisticas', function(){
-        return 'Estadisticas';
-    });
+    Route::get('/loans', function(){
+        return view('loans');
+    })->name('loans');
+
+    Route::get('/returns', function(){
+        return view('returns');
+    })->name('returns');
+
+    Route::get('/clients', function(){
+        return view('clients');
+    })->name('clients');
+
+    Route::get('/admins', function(){
+        return view('admins');
+    })->name('admins');
+    
+    Route::get('/statistics', function(){
+        return view('stadistics');
+    })->name('stadistics');
 
 
 

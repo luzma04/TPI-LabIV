@@ -7,8 +7,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             
-                    
-                    <form method="POST" action="{{route('store')}}" class="space-y-6 max-w-lg mx-auto bg-white p-6 shadow-md rounded-md">
+                    <form id="formBook" method="POST" action="{{route('store')}}" class="space-y-6 max-w-lg mx-auto bg-white p-6 shadow-md rounded-md">
                     {{ __("Datos del libro") }}
                         @csrf
                         @method('post')
@@ -80,4 +79,13 @@
 
         </div>
     </div>
+    <script>
+        document.getElementById('formBook').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que se envíe el formulario
+            const formData = new FormData(this); // Obtiene los datos del formulario
+            const formEntries = Object.fromEntries(formData.entries()); // Convierte a objeto
+
+            console.log("Datos del formulario:", formEntries);
+        });
+    </script>
 </x-app-layout>
