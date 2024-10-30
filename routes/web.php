@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Loan;
 use Illuminate\Support\Facades\Route;
 
-//Cada ruta de la app tiene una funcion de un controlador que determina que vista devuelve esa ruta
+//Cada ruta de la app tiene una funcion de un controlador que determina que devuelve esa ruta
 
 // Importa el orden en el que se definen las rutas.
 
@@ -14,10 +15,11 @@ Route::get('/', function () {
 });
 
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -32,6 +34,30 @@ Route::middleware('auth')->group(function () {
     Route::get('/books/{book}/edit', [BookController::class,'edit'])->name('edit');
     Route::put('/books/{book}/update', [BookController::class,'update'])->name('update');
     Route::delete('/books/{book}/delete', [BookController::class,'delete'])->name('delete');
+
+
+    Route::get('/loans', function(){
+        return view('loans');
+    })->name('loans');
+
+    Route::get('/returns', function(){
+        return view('returns');
+    })->name('returns');
+
+    Route::get('/clients', function(){
+        return view('clients');
+    })->name('clients');
+
+    Route::get('/admins', function(){
+        return view('admins');
+    })->name('admins');
+    
+    Route::get('/statistics', function(){
+        return view('stadistics');
+    })->name('stadistics');
+
+
+
 });
 
 require __DIR__.'/auth.php';
