@@ -12,7 +12,8 @@ class LoanController extends Controller
      */
     public function index()
     {
-        //
+        $loans = Loan::all();
+        return view('loans.loans', ['loans'=>$loans]);
     }
 
     /**

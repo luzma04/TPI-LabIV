@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\LoanController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Loan;
 use Illuminate\Support\Facades\Route;
@@ -37,9 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/books/{book}/details', [BookController::class,'details'])->name('details');
 
 
-    Route::get('/loans', function(){
-        return view('loans');
-    })->name('loans');
+    Route::get('/loans', [LoanController::class,'index'])->name('loans');
+
 
     Route::get('/returns', function(){
         return view('returns');

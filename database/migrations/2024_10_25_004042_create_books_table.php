@@ -19,7 +19,7 @@ return new class extends Migration
         $table->text('description');  // Descripción del libro
         $table->bigInteger('ISBN_code');  // Código ISBN del libro (se usa bigInteger para manejar ISBN de 13 dígitos)
         $table->integer('quantity');  // Cantidad disponible del libro
-        $table->string('state')->default('available');  // Estado del libro (ej. 'disponible', 'prestado') 
+        $table->string('state')->default('disponible');  // Estado del libro (ej. 'disponible', 'prestado') 
         $table->date('publication_year');  // Año de publicación del libro
         $table->string('language');  // Idioma del libro
         $table->string('genre')->nullable();  // Género del libro
