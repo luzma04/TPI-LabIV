@@ -14,13 +14,13 @@
                         <!-- Título -->
                         <div>
                             <label for="title" class="block text-sm font-medium text-gray-700">Título</label>
-                            <input type="text" required name="title" value="{{ old('title', 'Harry Potter') }}" placeholder="Ej: Harry Potter" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                            <input type="text" required name="title"  placeholder="Ej: Harry Potter" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
                         </div>
 
                         <!-- Autor -->
                         <div>
                             <label for="author" class="block text-sm font-medium text-gray-700">Autor</label>
-                            <input type="text" required name="author" value="{{ old('author', 'J.K. Rowling') }}" placeholder="Ej: J.K Rowling" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                            <input type="text" required name="author"  placeholder="Ej: J.K Rowling" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
                         </div>
 
                         <!-- Categoría -->
@@ -36,21 +36,21 @@
                         <!-- Descripción -->
                         <div>
                             <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
-                            <textarea id="description" required name="description" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                                {{ old('description', 'Descripción del libro...') }}
+                            <textarea id="description" required name="description" rows="4" class="mt-1 block w-full pt-1 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                
                             </textarea>
                         </div>
 
                         <!-- ISBN -->
                         <div>
                             <label for="ISBN_code" class="block text-sm font-medium text-gray-700">ISBN</label>
-                            <input type="text" name="ISBN_code" required value="{{ old('ISBN_code', '1234567890') }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                            <input type="text" name="ISBN_code" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
                         </div>
 
                         <!-- Año de Publicación -->
                         <div>
                             <label for="publication_year" class="block text-sm font-medium text-gray-700">Año de publicación</label>
-                            <input type="date" name="publication_year" required value="{{ old('publication_year', '2000-01-01') }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                            <input type="date" name="publication_year" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
                         </div>
 
                         <!-- Idioma -->
@@ -66,7 +66,7 @@
                         <!-- Cantidad -->
                         <div>
                             <label for="quantity" class="block text-sm font-medium text-gray-700">Cantidad disponible</label>
-                            <input type="number" name="quantity" required value="{{ old('quantity', 10) }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                            <input type="number" name="quantity" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
                         </div>
 
                         <!-- Botón Enviar -->
@@ -79,7 +79,7 @@
 
         </div>
     </div>
-    <script>
+    {{-- <script>
         document.getElementById('formBook').addEventListener('submit', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario
             const formData = new FormData(this); // Obtiene los datos del formulario
@@ -87,5 +87,5 @@
 
             console.log("Datos del formulario:", formEntries);
         });
-    </script>
+    </script> --}}
 </x-app-layout>
