@@ -57,9 +57,9 @@
             <div>
                 <label for="language" class="block text-sm font-medium text-gray-700">Idioma</label>
                 <select id="language" name="language" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                    <option value="spanish" {{ old('language', $book->language) == 'spanish' ? 'selected' : '' }}>Español</option>
-                    <option value="english" {{ old('language', $book->language) == 'english' ? 'selected' : '' }}>Inglés</option>
-                    <option value="german" {{ old('language', $book->language) == 'german' ? 'selected' : '' }}>Alemán</option>
+                    <option value="espanol" {{ old('language', $book->language) == 'espanol' ? 'selected' : '' }}>Español</option>
+                    <option value="ingles" {{ old('language', $book->language) == 'ingles' ? 'selected' : '' }}>Inglés</option>
+                    <option value="aleman" {{ old('language', $book->language) == 'aleman' ? 'selected' : '' }}>Alemán</option>
                 </select>
             </div>
 

@@ -33,7 +33,7 @@ class BookController extends Controller
             'description' => 'required|string|max:1000', // Descripción opcional, tipo string y longitud máxima de 1000 caracteres
             'ISBN_code' => 'required|string|size:13', // ISBN requerido, longitud de 13 caracteres
             'publication_year' => 'required|date', // Año de publicación requerido, tipo fecha
-            'language' => 'required|string|in:spanish,english,german', // Idioma requerido, debe estar entre las opciones definidas
+            'language' => 'required|string|in:espanol,ingles,aleman', // Idioma requerido, debe estar entre las opciones definidas
             'quantity' => 'required|integer|min:1', // Cantidad requerida, debe ser un número entero mayor o igual a 1
         ]);
 
@@ -58,6 +58,11 @@ class BookController extends Controller
         return view('books.edit', ['book'=>$book]);
     }
 
+    public function details(Book $book){
+        return view('books.details', ['book'=>$book]);
+    }
+
+
     public function update(Book $book, Request $request){
         $data = $request->validate([
             'title' => 'required|string|max:255', // Título requerido, tipo string y longitud máxima de 100 caracteres
@@ -66,7 +71,7 @@ class BookController extends Controller
             'description' => 'required|string|max:1000', // Descripción opcional, tipo string y longitud máxima de 1000 caracteres
             'ISBN_code' => 'required|string|size:13', // ISBN requerido, longitud de 13 caracteres
             'publication_year' => 'required|date', // Año de publicación requerido, tipo fecha
-            'language' => 'required|string|in:spanish,english,german', // Idioma requerido, debe estar entre las opciones definidas
+            'language' => 'required|string|in:espanol,ingles,aleman', // Idioma requerido, debe estar entre las opciones definidas
             'quantity' => 'required|integer|min:1', // Cantidad requerida, debe ser un número entero mayor o igual a 1
         ]);
         $book->update($data);
@@ -191,7 +196,7 @@ class BookController extends Controller
 
     // Function to get a random language
     private function getRandomLanguage() {
-        $languages = ['spanish', 'english', 'german'];
+        $languages = ['espanol', 'ingles', 'aleman'];
         return $languages[array_rand($languages)];
     }
 
