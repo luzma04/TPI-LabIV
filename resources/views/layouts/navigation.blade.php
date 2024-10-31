@@ -17,12 +17,12 @@
                     </x-nav-link>
 
                     <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('books')" :active="request()->routeIs('books')">
+                    <x-nav-link :href="route('books.index')" :active="request()->routeIs('books')">
                         {{ __('Libros') }}
                     </x-nav-link>
 
                     <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('loans')" :active="request()->routeIs('loans')">
+                    <x-nav-link :href="route('loans.index')" :active="request()->routeIs('loans')">
                         {{ __('Prestamos') }}
                     </x-nav-link>
 

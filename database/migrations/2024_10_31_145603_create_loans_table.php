@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('book_id')->constrained('books')->onDelete('cascade');
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('state')->default('pendiente');
+            $table->enum('state', ['activo', 'inactivo'])->default('activo');
             $table->timestamps();
         });
     }

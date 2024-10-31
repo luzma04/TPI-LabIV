@@ -7,7 +7,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             
-                    <form id="formBook" method="POST" action="{{route('store')}}" class="space-y-6 max-w-lg mx-auto bg-white p-6 shadow-md rounded-md">
+                    <form id="formBook" method="POST" action="{{route('books.store')}}" class="space-y-6 max-w-lg mx-auto bg-white p-6 shadow-md rounded-md">
                         @if ($errors->any())
                             <div class="text-red-600">
                                 <ul>

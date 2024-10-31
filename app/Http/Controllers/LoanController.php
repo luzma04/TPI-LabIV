@@ -5,42 +5,43 @@ namespace App\Http\Controllers;
 use App\Models\Loan;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
+use App\Models\Book;
+use App\Models\User;
 
 class LoanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        $loans = Loan::all();
-        return view('loans.loans', ['loans'=>$loans]);
+        $loans = Loan::with('user', 'book')->get();
+        return view('loans.loans', compact('loans'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        return view('loans.create');
-        //
+        $users = User::all();
+        $books = Book::all();
+        return view('loans.create', compact('users', 'books'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+            // Validar los datos del préstamo
+            $data = $request->validate([
+                'user_id' => 'required|exists:users,id', // Usuario requerido y debe existir en la tabla de usuarios
+                'book_id' => 'required|exists:books,id', // Libro requerido y debe existir en la tabla de libros
+                'start_date' => 'required|date', // Fecha de inicio requerida, tipo fecha
+                'end_date' => 'required|date|after:start_date', // Fecha de fin requerida, tipo fecha y debe ser posterior a la fecha de inicio
+                
+            ]);
+
+            // Crear un nuevo préstamo
+            $newLoan = Loan::create($data);
+
+            return redirect("loans");
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Loan $loan)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
