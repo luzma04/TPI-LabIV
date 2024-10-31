@@ -8,65 +8,85 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             
                     <form id="formBook" method="POST" action="{{route('store')}}" class="space-y-6 max-w-lg mx-auto bg-white p-6 shadow-md rounded-md">
-                    {{ __("Datos del libro") }}
+                        @if ($errors->any())
+                            <div class="text-red-600">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        {{ __("Datos del libro") }}
                         @csrf
                         @method('post')
                         <!-- Título -->
                         <div>
                             <label for="title" class="block text-sm font-medium text-gray-700">Título</label>
-                            <input type="text" required name="title"  placeholder="Ej: Harry Potter" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                            <input type="text" required name="title" value="{{ old('title', $title) }}" placeholder="Ej: Harry Potter" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
                         </div>
 
                         <!-- Autor -->
                         <div>
                             <label for="author" class="block text-sm font-medium text-gray-700">Autor</label>
-                            <input type="text" required name="author"  placeholder="Ej: J.K Rowling" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                            <input type="text" required name="author" value="{{ old('author', $author) }}" placeholder="Ej: J.K Rowling" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
                         </div>
 
                         <!-- Categoría -->
                         <div>
                             <label for="category" class="block text-sm font-medium text-gray-700">Categoría</label>
                             <select id="category" name="category" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                                <option value="novela">Novela</option>
-                                <option value="cuento">Cuento</option>
-                                <option value="academico">Académico</option>
+                                <option value="novela" {{ old('category', $category) == 'novela' ? 'selected' : '' }}>Novela</option>
+                                <option value="cuento" {{ old('category', $category) == 'cuento' ? 'selected' : '' }}>Cuento</option>
+                                <option value="academico" {{ old('category', $category) == 'academico' ? 'selected' : '' }}>Académico</option>
                             </select>
                         </div>
+                        
 
                         <!-- Descripción -->
                         <div>
                             <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
-                            <textarea id="description" required name="description" rows="4" class="mt-1 block w-full pt-1 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                                
+                            <textarea id="description" value="Alguna descripcion" required name="description" rows="4" class="mt-1 block w-full pt-1 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                {{ old('description', $description) }}
                             </textarea>
                         </div>
 
                         <!-- ISBN -->
                         <div>
                             <label for="ISBN_code" class="block text-sm font-medium text-gray-700">ISBN</label>
-                            <input type="text" name="ISBN_code" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                            <input 
+                                type="text" 
+                                name="ISBN_code" 
+                                required 
+                                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                maxlength="13" 
+                                pattern="\d{13}" 
+                                value="{{ old('ISBN_code', $isbn) }}" 
+                                title="Debe ingresar exactamente 13 dígitos numéricos"/>
                         </div>
 
                         <!-- Año de Publicación -->
                         <div>
                             <label for="publication_year" class="block text-sm font-medium text-gray-700">Año de publicación</label>
-                            <input type="date" name="publication_year" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                            <input type="date" value="{{old('publication_year', $publication_year)}}" name="publication_year" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
                         </div>
 
                         <!-- Idioma -->
                         <div>
                             <label for="language" class="block text-sm font-medium text-gray-700">Idioma</label>
                             <select id="language" name="language" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                                <option value="spanish">Español</option>
-                                <option value="english">Inglés</option>
-                                <option value="german">Alemán</option>
+                                <option value="spanish" {{ old('language', $language) == 'spanish' ? 'selected' : '' }}>Español</option>
+                                <option value="english" {{ old('language', $language) == 'english' ? 'selected' : '' }}>Inglés</option>
+                                <option value="german" {{ old('language', $language) == 'german' ? 'selected' : '' }}>Alemán</option>
                             </select>
                         </div>
 
+                        {{-- Falta que valide si es mayor o igual a 1 --}}
                         <!-- Cantidad -->
                         <div>
                             <label for="quantity" class="block text-sm font-medium text-gray-700">Cantidad disponible</label>
-                            <input type="number" name="quantity" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                            <input type="number" title="El minimo es 1" minlength="1" value={{old('quantity', $quantity)}} name="quantity" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
                         </div>
 
                         <!-- Botón Enviar -->
