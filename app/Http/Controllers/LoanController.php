@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Loan;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
 class LoanController extends Controller
@@ -21,6 +22,7 @@ class LoanController extends Controller
      */
     public function create()
     {
+        return view('loans.create');
         //
     }
 

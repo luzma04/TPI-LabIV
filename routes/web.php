@@ -27,8 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
-
     Route::get('/books', [BookController::class,'index'])->name('books');
     Route::get('/books/create', [BookController::class,'create'])->name('create');
     Route::post('/books/save', [BookController::class,'store'])->name('store');
@@ -37,8 +35,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/books/{book}/delete', [BookController::class,'delete'])->name('delete');
     Route::get('/books/{book}/details', [BookController::class,'details'])->name('details');
 
-
     Route::get('/loans', [LoanController::class,'index'])->name('loans');
+    Route::get('/loans/create', [LoanController::class,'create'])->name('create');
+    // Route::post('/loans/save', [LoanController::class,'store'])->name('store');
+    // Route::get('/loans/{loan}/edit', [LoanController::class,'edit'])->name('edit');
+    // Route::put('/loans/{loan}/update', [LoanController::class,'update'])->name('update');
+    // Route::delete('/loans/{loan}/delete', [LoanController::class,'delete'])->name('delete');
+    // Route::get('/loans/{loan}/details', [LoanController::class,'details'])->name('details');
 
 
     Route::get('/returns', function(){
