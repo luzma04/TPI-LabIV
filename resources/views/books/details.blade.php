@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             
                     
-        <form method="POST" action="{{route('details',['book'=>$book])}}" class="space-y-6 max-w-lg mx-auto bg-white p-6 shadow-md rounded-md">
+        <form method="POST" action="{{route('books.details',['book'=>$book])}}" class="space-y-6 max-w-lg mx-auto bg-white p-6 shadow-md rounded-md">
             {{ __("Datos del libro") }}
             @csrf
             @method('put')
