@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             
                     
-        <form method="POST" action="{{route('update',['book'=>$book])}}" class="space-y-6 max-w-lg mx-auto bg-white p-6 shadow-md rounded-md">
+        <form method="POST" action="{{route('books.update',['book'=>$book])}}" class="space-y-6 max-w-lg mx-auto bg-white p-6 shadow-md rounded-md">
             {{ __("Datos del libro") }}
             @csrf
             @method('put')
@@ -57,9 +57,9 @@
             <div>
                 <label for="language" class="block text-sm font-medium text-gray-700">Idioma</label>
                 <select id="language" name="language" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                    <option value="spanish" {{ old('language', $book->language) == 'spanish' ? 'selected' : '' }}>Español</option>
-                    <option value="english" {{ old('language', $book->language) == 'english' ? 'selected' : '' }}>Inglés</option>
-                    <option value="german" {{ old('language', $book->language) == 'german' ? 'selected' : '' }}>Alemán</option>
+                    <option value="espanol" {{ old('language', $book->language) == 'espanol' ? 'selected' : '' }}>Español</option>
+                    <option value="ingles" {{ old('language', $book->language) == 'ingles' ? 'selected' : '' }}>Inglés</option>
+                    <option value="aleman" {{ old('language', $book->language) == 'aleman' ? 'selected' : '' }}>Alemán</option>
                 </select>
             </div>
 

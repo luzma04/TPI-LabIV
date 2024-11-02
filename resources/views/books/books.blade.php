@@ -34,8 +34,9 @@
                                 <td class="px-4 py-2 border-b border-gray-200">{{ $book->language }}</td>
                                 <td class="px-4 py-2 border-b border-gray-200">{{ $book->state }}</td>
                                 <td class="px-4 py-2 border-b border-gray-200">
-                                    <a href="{{route('edit',['book'=>$book])}} "class="text-blue-600 hover:text-blue-800">Modificar</a>
-                                    <form action="{{route('delete',['book'=>$book])}}" method="POST" class="inline">
+                                    <a href="{{route('books.details',['book'=>$book])}} "class="text-green-600 hover:text-blue-800">Ver</a>
+                                    <a href="{{route('books.edit',['book'=>$book])}} "class="text-blue-600 hover:text-blue-800">Modificar</a>
+                                    <form action="{{route('books.delete',['book'=>$book])}}" method="POST" class="inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-600 hover:text-red-800 ml-2">Eliminar</button>

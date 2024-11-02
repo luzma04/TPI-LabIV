@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\LoanController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Loan;
 use Illuminate\Support\Facades\Route;
@@ -25,20 +26,25 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Rutas de libros
+    Route::get('/books', [BookController::class,'index'])->name('books.index');
+    Route::get('/books/create', [BookController::class,'create'])->name('books.create');
+    Route::post('/books/save', [BookController::class,'store'])->name('books.store');
+    Route::get('/books/{book}/edit', [BookController::class,'edit'])->name('books.edit');
+    Route::put('/books/{book}/update', [BookController::class,'update'])->name('books.update');
+    Route::delete('/books/{book}/delete', [BookController::class,'delete'])->name('books.delete');
+    Route::get('/books/{book}/details', [BookController::class,'details'])->name('books.details');
 
+    // Rutas de préstamos
+    Route::get('/loans', [LoanController::class,'index'])->name('loans.index');
+    Route::get('/loans/create', [LoanController::class,'create'])->name('loans.create');
+    Route::post('/loans/store', [LoanController::class, 'store'])->name('loans.store');
+    // Route::post('/loans/save', [LoanController::class,'store'])->name('store');
+    // Route::get('/loans/{loan}/edit', [LoanController::class,'edit'])->name('edit');
+    // Route::put('/loans/{loan}/update', [LoanController::class,'update'])->name('update');
+    // Route::delete('/loans/{loan}/delete', [LoanController::class,'delete'])->name('delete');
+    // Route::get('/loans/{loan}/details', [LoanController::class,'details'])->name('details');
 
-
-    Route::get('/books', [BookController::class,'index'])->name('books');
-    Route::get('/books/create', [BookController::class,'create'])->name('create');
-    Route::post('/books/save', [BookController::class,'store'])->name('store');
-    Route::get('/books/{book}/edit', [BookController::class,'edit'])->name('edit');
-    Route::put('/books/{book}/update', [BookController::class,'update'])->name('update');
-    Route::delete('/books/{book}/delete', [BookController::class,'delete'])->name('delete');
-
-
-    Route::get('/loans', function(){
-        return view('loans');
-    })->name('loans');
 
     Route::get('/returns', function(){
         return view('returns');
