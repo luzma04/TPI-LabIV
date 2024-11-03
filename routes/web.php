@@ -3,7 +3,9 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Loan;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
+
 use Illuminate\Support\Facades\Route;
 
 //Cada ruta de la app tiene una funcion de un controlador que determina que devuelve esa ruta
@@ -52,13 +54,10 @@ Route::middleware('auth')->group(function () {
         return view('returns');
     })->name('returns');
 
-    Route::get('/clients', function(){
-        return view('clients');
-    })->name('clients');
+  
+    Route::get('/clients', [ClientController::class, 'index'])->name('clients');
 
-    Route::get('/admins', function(){
-        return view('admins');
-    })->name('admins');
+    Route::get('/admins', [AdminController::class, 'index'])->name('admins');
     
     Route::get('/statistics', function(){
         return view('stadistics');
