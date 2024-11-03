@@ -27,14 +27,29 @@
                         </thead>
                         <tbody>
                             @foreach($loans as $loan)
-                                <tr class="hover:bg-gray-50">
-                                    <td class="px-4 py-2 border-b border-gray-200">{{ $loan->user->name }}</td>
-                                    <td class="px-4 py-2 border-b border-gray-200">{{ $loan->user->email }}</td>
-                                    <td class="px-4 py-2 border-b border-gray-200">{{ $loan->book->title }}</td>
-                                    <td class="px-4 py-2 border-b border-gray-200">{{ $loan->book->ISBN_code }}</td>
-                                    <td class="px-4 py-2 border-b border-gray-200">{{ $loan->end_date }}</td>
-                                    
-                                </tr>
+                                @if($loan->book)
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-4 py-2 border-b border-gray-200">{{ $loan->user->name }}</td>
+                                        <td class="px-4 py-2 border-b border-gray-200">{{ $loan->user->email }}</td>
+                                        <td class="px-4 py-2 border-b border-gray-200">{{ $loan->book->title }}</td>
+                                        <td class="px-4 py-2 border-b border-gray-200">{{ $loan->book->ISBN_code }}</td>
+                                        <td class="px-4 py-2 border-b border-gray-200">{{ $loan->end_date }}</td>
+                                        <td class="px-4 py-2 border-b border-gray-200">
+                                            <a href="" class="text-blue-600 hover:text-blue-800">Dar de baja</a>
+                                        </td>
+                                    </tr>
+                                    @else
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-4 py-2 border-b border-gray-200">{{ $loan->user->name }}</td>
+                                        <td class="px-4 py-2 border-b border-gray-200">{{ $loan->user->email }}</td>
+                                        <td class="px-4 py-2 border-b border-gray-200">Libro no encontrado (posible eliminación)</td>
+                                        <td class="px-4 py-2 border-b border-gray-200"></td>
+                                        <td class="px-4 py-2 border-b border-gray-200">{{ $loan->end_date }}</td>
+                                        <td class="px-4 py-2 border-b border-gray-200">
+                                            <a href="" class="text-red-600 hover:text-blue-800">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>
