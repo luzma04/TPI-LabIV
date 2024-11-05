@@ -7,6 +7,8 @@ use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\User;
+use Carbon\Carbon; // Importar Carbon
+
 
 class LoanController extends Controller
 {
@@ -22,7 +24,10 @@ class LoanController extends Controller
     {
         $users = User::all();
         $books = Book::all();
-        return view('loans.create', compact('users', 'books'));
+        $currentDate = Carbon::now()->format('Y-m-d'); // Obtener la fecha actual en formato 'Y-m-d'
+        $endDate = Carbon::now()->addDays(7)->format('Y-m-d'); // Sumar 7 días a la fecha actual
+
+        return view('loans.create', compact('users', 'books', 'currentDate', 'endDate'));
     }
     public function store(Request $request)
     {
