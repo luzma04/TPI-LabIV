@@ -191,7 +191,7 @@ class BookController extends Controller
 
     // Function to get a random quantity between 1 and 999
     private function getRandomQuantity() {
-        return rand(1, 999);
+        return rand(1, 10);
     }
 
     // Function to get a random language
