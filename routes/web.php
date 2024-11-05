@@ -43,6 +43,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/loans', [LoanController::class,'index'])->name('loans.index');
     Route::get('/loans/create', [LoanController::class,'create'])->name('loans.create');
     Route::post('/loans/store', [LoanController::class, 'store'])->name('loans.store');
+    Route::post('/loans/{loan}/deactivate', [LoanController::class, 'deactivate'])->name('loans.deactivate');
+
     // Route::post('/loans/save', [LoanController::class,'store'])->name('store');
     // Route::get('/loans/{loan}/edit', [LoanController::class,'edit'])->name('edit');
     // Route::put('/loans/{loan}/update', [LoanController::class,'update'])->name('update');
@@ -50,9 +52,11 @@ Route::middleware('auth')->group(function () {
     // Route::get('/loans/{loan}/details', [LoanController::class,'details'])->name('details');
 
 
-    Route::get('/returns', function(){
-        return view('returns');
-    })->name('returns');
+    // Route::get('/returns', function(){
+    //     return view('returns');
+    // })->name('returns');
+
+    Route::get('/returns', [LoanController::class,'returns'])->name('returns');
 
   
     Route::get('/clients', [ClientController::class, 'index'])->name('clients');

@@ -19,6 +19,12 @@ class LoanController extends Controller
         return view('loans.loans', compact('loans'));
     }
 
+    public function returns()
+    {
+        $loans = Loan::with('user', 'book')->get();
+        return view('loans.returns', compact('loans'));
+    }
+
 
     public function create()
     {
@@ -45,6 +51,17 @@ class LoanController extends Controller
 
             return redirect("loans");
     }
+
+    // app/Http/Controllers/LoanController.php
+    public function deactivate(Loan $loan)
+    {
+        // Cambiar el estado del préstamo
+        $loan->state = 'inactivo'; // O el estado que desees asignar
+        $loan->save();
+
+        return redirect()->back()->with('success', 'El préstamo ha sido dado de baja.');
+    }
+
 
 
 
