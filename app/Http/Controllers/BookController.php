@@ -111,14 +111,28 @@ class BookController extends Controller
     {
         // Lista de 20 posibles títulos
         $titles = [
-            'The Silent Ocean', 'Journey to the Unknown', 'Whispers of the Past', 
-            'Shadows of the Mind', 'Echoes of Eternity', 'Beneath the Stars', 
-            'Winds of Change', 'The Lost Kingdom', 'Reflections of a Dream', 
-            'Secrets in the Night', 'Beyond the Horizon', 'The Forgotten Path', 
-            'Voices in the Fog', 'In the Heart of the Forest', 'A Tale of Two Worlds', 
-            'Legends of the Ancient', 'Memories of Tomorrow', 'The Final Chapter', 
-            'Rise of the Phoenix', 'The Last Frontier'
+            'El océano silencioso', 
+            'Viaje a lo desconocido', 
+            'Susurros del pasado', 
+            'Sombras de la mente', 
+            'Ecos de la eternidad', 
+            'Bajo las estrellas', 
+            'Vientos de cambio', 
+            'El reino perdido', 
+            'Reflexiones de un sueño', 
+            'Secretos en la noche', 
+            'Más allá del horizonte', 
+            'El camino olvidado', 
+            'Voces en la niebla', 
+            'En el corazón del bosque', 
+            'Un cuento de dos mundos', 
+            'Leyendas de lo antiguo', 
+            'Recuerdos del mañana', 
+            'El capítulo final', 
+            'El auge del fénix', 
+            'La última frontera'
         ];
+        
 
         // Selecciona aleatoriamente un título de la lista
         return $titles[array_rand($titles)];
