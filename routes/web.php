@@ -5,6 +5,7 @@ use App\Http\Controllers\LoanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\StatisticsController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -63,9 +64,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admins', [AdminController::class, 'index'])->name('admins');
     
-    Route::get('/statistics', function(){
+    Route::get('/statistics', [StatisticsController::class, 'statistics'])->name('statistics');
+    /*Route::get('/statistics', function(){
         return view('stadistics');
-    })->name('stadistics');
+    })->name('stadistics');*/
 
 
 

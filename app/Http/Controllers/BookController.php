@@ -214,9 +214,5 @@ class BookController extends Controller
         return $languages[array_rand($languages)];
     }
 
-
-
-
-
-
+    
 }

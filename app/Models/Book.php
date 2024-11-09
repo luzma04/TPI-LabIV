@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
+    
     use HasFactory;
 
     protected $fillable = [
@@ -20,4 +21,8 @@ class Book extends Model
         'language',
         'genre'
     ];
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);
+    }
 }

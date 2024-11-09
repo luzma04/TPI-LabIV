@@ -41,7 +41,7 @@
                         {{ __('Administradores') }}
                     </x-nav-link>
                     <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('stadistics')" :active="request()->routeIs('stadistics')">
+                    <x-nav-link :href="route('statistics')" :active="request()->routeIs('stadistics')">
                         {{ __('Estadisticas') }}
                     </x-nav-link>
                 </div>
