@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('loans', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('book_id')->constrained('books')->onDelete('cascade');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->enum('state', ['activo', 'inactivo'])->default('activo');
-            $table->boolean('returned')->default(false);  // Estado de si fue devuelto
+            $table->foreignId('loan_id')->constrained('loans')->onDelete('cascade');
+            $table->text('message');
+            $table->timestamp('notification_date')->useCurrent();
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('loans');
+        Schema::dropIfExists('notifications');
     }
 };

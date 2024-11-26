@@ -1,0 +1,238 @@
+[33mcommit 8b5b4dd5714a5ddbc39b8217a7eaef6b7de68703[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mcecilia[m[33m)[m
+Author: cecidomin <cecindominguez@gmail.com>
+Date:   Mon Nov 25 11:18:28 2024 -0300
+
+    actualización de cambios
+
+[33mcommit eb261b9dddeaa372203aaee3ec91c632084da8f9[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/cecilia[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Wed Nov 13 17:33:10 2024 -0300
+
+    Cambio de titulo e icono de la pagina
+
+[33mcommit e7f08baaf3779812b8674de643150e47e6c5d3ea[m
+Author: Luzma <luzm.roldan04@gmail.com>
+Date:   Sat Nov 9 18:11:09 2024 -0300
+
+    Avance con vista de estadisticas
+
+[33mcommit 198601a559603dcd5e01d00a27d3ca9a4e167d42[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Mon Nov 4 23:01:24 2024 -0300
+
+    Se agrego la logica de las "Devoluciones"
+
+[33mcommit d848c5acbeb0285180df7d7384a4c284daf9e3ad[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Mon Nov 4 22:36:07 2024 -0300
+
+    Cambio de idioma de los libros a español
+
+[33mcommit 4e61e250836f98c29a10db1ce4ac9b22b416d858[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Mon Nov 4 22:33:36 2024 -0300
+
+    Cambios en la logica de fechas prestamo
+    
+    Ahora te toma por defecto la fecha actual y le suma 7 dias para la final
+
+[33mcommit 638294b6b317a04f62e6aead473e9307c995635a[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Mon Nov 4 22:04:53 2024 -0300
+
+    Restriccion en la cantidad al crear un libro y cambios en el css del inicio
+
+[33mcommit 6153b2f4fdf7ce67c12d73a32b63d26fe947a61f[m
+Author: Luzma <luzm.roldan04@gmail.com>
+Date:   Sun Nov 3 16:59:50 2024 -0300
+
+    Corrección de detalles
+
+[33mcommit 83cc2c13ad09775d2e360fd0ba0b754be6663b2f[m
+Merge: 3198b34 9a5f2ac
+Author: Luzma <luzm.roldan04@gmail.com>
+Date:   Sun Nov 3 16:44:23 2024 -0300
+
+    Merge branch 'main' of https://github.com/luzma04/TPI-LabIV
+
+[33mcommit 3198b347db98e326cb6719881f0a7cae2d56f54e[m
+Author: Luzma <luzm.roldan04@gmail.com>
+Date:   Sun Nov 3 16:43:59 2024 -0300
+
+    Solucionar prestamo con eliminación de libro
+
+[33mcommit 9a5f2ac0bf8f7b4149bf54ce6190afe261478ef5[m
+Author: cecidomin <cecindominguez@gmail.com>
+Date:   Sat Nov 2 23:00:36 2024 -0300
+
+    actualización de welcome y creación de admin y clientes
+
+[33mcommit 4920526cd5cf398e274d707ba91191ce37c9a95c[m
+Author: cecidomin <cecindominguez@gmail.com>
+Date:   Sat Nov 2 20:47:45 2024 -0300
+
+    cambios y pruebas
+
+[33mcommit d8416af95690bdb1784d5306acbfe818b0afae81[m
+Merge: 871c4d4 14ecf97
+Author: cecidomin <cecindominguez@gmail.com>
+Date:   Sat Nov 2 19:51:43 2024 -0300
+
+    actualizacion de cambios compañeros
+
+[33mcommit 14ecf975844648aeff0889214f2bb1f464573ec3[m
+Author: Luzma <luzm.roldan04@gmail.com>
+Date:   Sat Nov 2 07:44:59 2024 -0300
+
+    Formulario de loans
+
+[33mcommit cb879024e2e557fce8b96896eeaf7abe55022b01[m
+Author: Luzma <luzm.roldan04@gmail.com>
+Date:   Thu Oct 31 20:11:14 2024 -0300
+
+    Avances con vistas de prestamos
+
+[33mcommit bbfd0aa5dc28f0f4ecb542f89af0ac84760b2e97[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Thu Oct 31 13:31:40 2024 -0300
+
+    Creacion del formulario "loan" y reutilizacion en sus vistas
+
+[33mcommit 90f453dc20c74e4ef96f43591520eb778460c900[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Thu Oct 31 12:01:00 2024 -0300
+
+    Creacion de migracion, modelo, controlador y vistas de "Prestamos""
+
+[33mcommit 7307b15b56469366e8dab1b57c35f50ce5a154c2[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Thu Oct 31 11:40:28 2024 -0300
+
+    Agregue seccion "ver" para los detalles del libro
+
+[33mcommit 42cf508e75d5d1d1d3cab06771c23bf5200530b3[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Thu Oct 31 10:45:18 2024 -0300
+
+    Mejoras en la creacion de los libros
+    
+    Puse metodos en el controlador del libro para que al crear me genere valores aleatorios para ahorrar tiempo, y tambien valida si el codigo isbn ya esta en la base de datos para que no hayan repetidos.
+
+[33mcommit 0693020d3d2b54a0966e4c6ac9f56507b498e7c4[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Thu Oct 31 09:34:01 2024 -0300
+
+    Correcion en funcionamiento del form libro
+
+[33mcommit 871c4d41ea802ea56a668bfda7124b51812301ab[m
+Author: cecidomin <cecindominguez@gmail.com>
+Date:   Wed Oct 30 23:28:13 2024 -0300
+
+    Avance parcial
+
+[33mcommit d58c768e3f3e0a409522a168365280f9e6e88112[m
+Merge: a54af20 19b1470
+Author: santi <santiezapata.2@gmail.com>
+Date:   Wed Oct 30 00:54:33 2024 -0300
+
+    Merge branch 'santi'
+
+[33mcommit 19b14707a1609c904679ad006989c7123f4ae7d9[m[33m ([m[1;31morigin/santi[m[33m)[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Wed Oct 30 00:46:24 2024 -0300
+
+    Avances en navbar y rutas con sus vistas
+
+[33mcommit a54af20489440c52ef6b8eb428f7abd807271aab[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Tue Oct 29 17:46:31 2024 -0300
+
+    fix
+
+[33mcommit fa241320094b1cf8417fad3fdff2d4be3ad3de80[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Tue Oct 29 17:08:49 2024 -0300
+
+    Agregacion de rutas, y valores predeterminados al agregar un libro
+
+[33mcommit c32edd1e292d5c22276f628804d2d1d5c9e1dd3e[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Tue Oct 29 16:34:48 2024 -0300
+
+    Elimine el anterior navbar y le agregue las secciones faltantes al de ahora
+
+[33mcommit 3612ed7b1584a580c8dc57c258bc830d5fe43dcf[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Tue Oct 29 16:18:53 2024 -0300
+
+    puse la vista "dashboard" como predeterminado "/"
+
+[33mcommit 1c6cb052262c9971d4f31b0a6571abe139c49fc4[m
+Merge: f45671f 18fde1a
+Author: santi <santiezapata.2@gmail.com>
+Date:   Tue Oct 29 12:57:49 2024 -0300
+
+    Merge branch 'main' of https://github.com/luzma04/TPI-LabIV
+
+[33mcommit f45671fab542fa18ead554a37f4a40d3764078b1[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Tue Oct 29 12:55:53 2024 -0300
+
+    agregue archivo .env (cambiar puerto)
+
+[33mcommit 18fde1af19283983e416bcece2dad4d5babdf3d4[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Tue Oct 29 10:06:18 2024 -0300
+
+    cambios en el readme
+
+[33mcommit 87fc1ac655e2807bee1e0a039dd527f50507b905[m
+Author: Luz Roldan <111022475+luzma04@users.noreply.github.com>
+Date:   Sat Oct 26 20:16:46 2024 -0300
+
+    Update README.md
+
+[33mcommit 87170337f637afdbd80f60a8c0c3035586e700b9[m
+Author: Luzma <luzm.roldan04@gmail.com>
+Date:   Sat Oct 26 20:03:15 2024 -0300
+
+    conexión a base de datos y CRUD de libros
+
+[33mcommit 8fc3408a0f6db09d7b523d90d2415b61aa632acb[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Thu Oct 24 22:04:56 2024 -0300
+
+    Se crearon Los modelos con sus migraciones
+
+[33mcommit 5bf23ae74ce27ba000309bb69ab6ab88f9257922[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Thu Oct 24 15:38:56 2024 -0300
+
+    Se instalo breeze
+
+[33mcommit eb835015de1cf521cc181104987f895f7896c1b9[m
+Merge: 7cf52d9 82305fc
+Author: santi <santiezapata.2@gmail.com>
+Date:   Thu Oct 24 00:18:57 2024 -0300
+
+    Merge branch 'main' of https://github.com/luzma04/TPI-LabIV
+
+[33mcommit 7cf52d928a2e6e9dfbb718a38c03af6ba4611446[m
+Author: santi <santiezapata.2@gmail.com>
+Date:   Thu Oct 24 00:14:37 2024 -0300
+
+    Conectar proyecto Laravel con repositorio GitHub existente
+
+[33mcommit 82305fce4a363b4dd9d6536a9dc46756922dd824[m
+Author: cecidomin <119970845+cecidomin@users.noreply.github.com>
+Date:   Wed Sep 25 20:41:55 2024 -0300
+
+    Add files via upload
+    
+    propuesta de MER
+
+[33mcommit e4693663131dafcddafb735a92620ea9126e44f6[m
+Author: Luzma <111022475+luzma04@users.noreply.github.com>
+Date:   Thu Aug 15 14:49:43 2024 -0300
+
+    Initial commit

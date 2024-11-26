@@ -13,17 +13,28 @@ use Carbon\Carbon; // Importar Carbon
 class LoanController extends Controller
 {
 
-    public function index()
+    /*public function index()
     {
         $loans = Loan::with('user', 'book')->get();
+        return view('loans.loans', compact('loans'));
+    }*/
+    public function index()
+    {
+        $loans = Loan::with(['user', 'book'])->where('state', 'activo')->get();
         return view('loans.loans', compact('loans'));
     }
 
     public function returns()
     {
-        $loans = Loan::with('user', 'book')->get();
+        $loans = Loan::with(['user', 'book'])->where('state', 'inactivo')->get();
         return view('loans.returns', compact('loans'));
     }
+    
+    /*public function returns()
+    {
+        $loans = Loan::with('user', 'book')->get();
+        return view('loans.returns', compact('loans'));
+    }*/
 
 
     public function create()
@@ -35,7 +46,8 @@ class LoanController extends Controller
 
         return view('loans.create', compact('users', 'books', 'currentDate', 'endDate'));
     }
-    public function store(Request $request)
+    
+    /*public function store(Request $request)
     {
             // Validar los datos del préstamo
             $data = $request->validate([
@@ -50,20 +62,58 @@ class LoanController extends Controller
             $newLoan = Loan::create($data);
 
             return redirect("loans");
+    }*/
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'book_id' => 'required|exists:books,id',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+        ], [
+            'user_id.required' => 'El campo usuario es obligatorio.',
+            'book_id.required' => 'El campo libro es obligatorio.',
+            'end_date.after' => 'La fecha de fin debe ser posterior a la fecha de inicio.',
+        ]);
+        
+
+        // Validar si hay stock del libro
+        $book = Book::find($data['book_id']);
+        if ($book->quantity <= 0) {
+            return redirect()->back()->withErrors(['book_id' => 'El libro no está disponible en este momento.']);
+        }
+
+        // Crear el préstamo
+        Loan::create($data);
+
+        // Reducir la cantidad del libro
+        $book->decrement('quantity');
+
+        return redirect("loans")->with('success', 'Préstamo registrado exitosamente.');
     }
 
+
     // app/Http/Controllers/LoanController.php
-    public function deactivate(Loan $loan)
+    /*public function deactivate(Loan $loan)
     {
         // Cambiar el estado del préstamo
         $loan->state = 'inactivo'; // O el estado que desees asignar
         $loan->save();
 
         return redirect()->back()->with('success', 'El préstamo ha sido dado de baja.');
+    }*/
+    public function deactivate(Loan $loan)
+    {
+        $loan->state = 'inactivo';
+        $loan->save();
+
+        // Restaurar la cantidad del libro si existe
+        if ($loan->book) {
+            $loan->book->increment('quantity');
+        }
+
+        return redirect()->back()->with('success', 'El préstamo ha sido dado de baja.');
     }
-
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -88,4 +138,15 @@ class LoanController extends Controller
     {
         //
     }
+    /*public function destroy(Loan $loan)
+    {
+        if ($loan->state == 'activo' && $loan->book) {
+            $loan->book->increment('quantity');
+        }
+
+        $loan->delete();
+
+        return redirect()->back()->with('success', 'El préstamo ha sido eliminado.');
+    }
+*/ 
 }

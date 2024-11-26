@@ -9,24 +9,22 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
-{
-    Schema::create('books', function (Blueprint $table) {
-        $table->increments('id');  // Llave primaria autoincremental
-        $table->string('title');  // Título del libro
-        $table->string('author');
-        $table->text('category');  // Llave foránea que hace referencia a la tabla 'categories'
-        $table->text('description');  // Descripción del libro
-        $table->bigInteger('ISBN_code');  // Código ISBN del libro (se usa bigInteger para manejar ISBN de 13 dígitos)
-        $table->integer('quantity');  // Cantidad disponible del libro
-        $table->string('state')->default('disponible');  // Estado del libro (ej. 'disponible', 'prestado') 
-        $table->date('publication_year');  // Año de publicación del libro
-        $table->string('language');  // Idioma del libro
-        $table->string('genre')->nullable();  // Género del libro
-        $table->timestamps();  // Para los campos created_at y updated_at
-
-    });
-}
+    public function up(): void
+    {
+        Schema::create('books', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('author');
+            $table->string('category');
+            $table->text('description');
+            $table->bigInteger('ISBN_code')->unique();
+            $table->integer('quantity')->default(0);  // Por defecto 0
+            $table->enum('state', ['disponible', 'prestado'])->default('disponible');
+            $table->date('publication_year');
+            $table->string('language');
+            $table->timestamps();
+        });
+    }
 
 
     /**

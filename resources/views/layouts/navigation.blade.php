@@ -23,7 +23,7 @@
 
                     <!-- Enlace a Libros -->
                     <x-nav-link :href="route('loans.index')" :active="request()->routeIs('loans')">
-                        {{ __('Prestamos') }}
+                        {{ __('Prestamos Manager') }}
                     </x-nav-link>
 
                     <!-- Enlace a Libros -->

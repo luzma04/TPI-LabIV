@@ -18,18 +18,17 @@
                         
                         <div class="p-4 bg-green-200 rounded-lg shadow-sm text-center">
                             <p class="font-bold text-2xl">🥇</p>
-                            <p class="font-semibold">{{ $topBooks[0]->title }}</p>
+                            <p class="font-semibold">{{ isset($topBooks[0]) ? $topBooks[0]->title : 'No disponible' }}</p>
                         </div>
                         <div class="p-4 bg-yellow-200 rounded-lg shadow-sm text-center">
                             <p class="font-bold text-2xl">🥈</p>
-                            <p class="font-semibold">{{ $topBooks[1]->title }}</p>
+                            <p class="font-semibold">{{ isset($topBooks[1]) ? $topBooks[1]->title : 'No disponible' }}</p>
                         </div>
                     </div>
                     
                     <div class="mt-4 p-4 bg-orange-200 rounded-lg shadow-sm text-center">
                         <p class="font-bold text-2xl">🥉</p>
-                        <p class="font-semibold">{{ $topBooks[2]->title }}</p>
-                        
+                        <p class="font-semibold">{{ isset($topBooks[2]) ? $topBooks[2]->title : 'No disponible' }}</p>
                     </div>
                 </div>
 

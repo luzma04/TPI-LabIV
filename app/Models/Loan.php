@@ -20,4 +20,9 @@ class Loan extends Model
     {
         return $this->belongsTo(Book::class);
     }
+
+    public function getFormattedEndDateAttribute()
+    {
+        return \Carbon\Carbon::parse($this->end_date)->format('d-m-Y');
+    }
 }

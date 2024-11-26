@@ -25,4 +25,9 @@ class Book extends Model
     {
         return $this->hasMany(Loan::class);
     }
+
+    public function isAvailable()
+    {
+        return $this->quantity > 0;
+    }
 }
