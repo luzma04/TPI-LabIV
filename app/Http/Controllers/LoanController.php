@@ -7,7 +7,7 @@ use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\User;
-use Carbon\Carbon; // Importar Carbon
+use Carbon\Carbon;
 
 
 class LoanController extends Controller

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Models\Loan;
 use App\Models\Book;
 use App\Models\User;
+use Carbon\Carbon;
 
 class StatisticsController extends Controller
 {
@@ -20,6 +21,16 @@ class StatisticsController extends Controller
                         ->take(3)
                         ->get();
 
-        return view('statistics.statistics', compact('topBooks', 'topUsers'));
+        //GRAFICO
+        $categoryData = Loan::selectRaw('books.category, COUNT(loans.id) as total')
+        ->join('books', 'loans.book_id', '=', 'books.id')
+        ->groupBy('books.category')
+        ->get();
+
+        $categories = $categoryData->pluck('category');
+        $totals = $categoryData->pluck('total');
+
+
+        return view('statistics.statistics', compact('topBooks', 'topUsers', 'categories', 'totals'));
     }
 }
