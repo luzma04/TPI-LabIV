@@ -12,40 +12,43 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <!-- Enlace a Inicio -->
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Inicio') }}
                     </x-nav-link>
 
                     <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('books.index')" :active="request()->routeIs('books')">
+                    <x-nav-link :href="route('books.index')" :active="request()->routeIs('books.index')">
                         {{ __('Libros') }}
                     </x-nav-link>
 
-                    <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('loans.index')" :active="request()->routeIs('loans')">
-                        {{ __('Prestamos Manager') }}
-                    </x-nav-link>
+                    @if (Auth::user()->rango === 'admin')
+                        <!-- Enlace a Prestamos Manager -->
+                        <x-nav-link :href="route('loans.index')" :active="request()->routeIs('loans.index')">
+                            {{ __('Prestamos Manager') }}
+                        </x-nav-link>
 
-                    <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('returns')" :active="request()->routeIs('returns')">
-                        {{ __('Devoluciones') }}
-                    </x-nav-link>
+                        <!-- Enlace a Devoluciones -->
+                        <x-nav-link :href="route('returns')" :active="request()->routeIs('returns')">
+                            {{ __('Devoluciones') }}
+                        </x-nav-link>
 
-                    <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('clients')" :active="request()->routeIs('clients')">
-                        {{ __('Clientes') }}
-                    </x-nav-link>
+                        <!-- Enlace a Clientes -->
+                        <x-nav-link :href="route('clients')" :active="request()->routeIs('clients')">
+                            {{ __('Clientes') }}
+                        </x-nav-link>
 
-                    <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('admins')" :active="request()->routeIs('admins')">
-                        {{ __('Administradores') }}
-                    </x-nav-link>
-                    <!-- Enlace a Libros -->
-                    <x-nav-link :href="route('statistics')" :active="request()->routeIs('stadistics')">
-                        {{ __('Estadisticas') }}
-                    </x-nav-link>
+                        <!-- Enlace a Administradores -->
+                        <x-nav-link :href="route('admins')" :active="request()->routeIs('admins')">
+                            {{ __('Administradores') }}
+                        </x-nav-link>
+
+                        <!-- Enlace a Estadísticas -->
+                        <x-nav-link :href="route('statistics')" :active="request()->routeIs('statistics')">
+                            {{ __('Estadísticas') }}
+                        </x-nav-link>
+                    @endif
                 </div>
-            </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">

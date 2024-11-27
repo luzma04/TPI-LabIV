@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->bigInteger('ISBN_code')->unique();
             $table->integer('quantity')->default(0);  // Por defecto 0
+            $table->enum('state', ['disponible', 'prestado'])->default('disponible');
             $table->date('publication_year');
             $table->string('language');
             $table->timestamps();

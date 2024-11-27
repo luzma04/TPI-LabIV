@@ -4,9 +4,11 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Todos los libros') }}
             </h2>
-            <a href="/books/create" class="ml-4 px-4 py-2 bg-indigo-600 text-white rounded-md text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                Agregar
-            </a>
+            @if (Auth::user()->rango === 'admin')
+                <a href="/books/create" class="ml-4 px-4 py-2 bg-indigo-600 text-white rounded-md text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    Agregar
+                </a>
+            @endif
         </div>
     </x-slot>
     <div class="py-12">
@@ -35,12 +37,14 @@
                                 <td class="px-4 py-2 border-b border-gray-200">{{ $book->state }}</td>
                                 <td class="px-4 py-2 border-b border-gray-200">
                                     <a href="{{route('books.details',['book'=>$book])}} "class="text-green-600 hover:text-blue-800">Ver</a>
-                                    <a href="{{route('books.edit',['book'=>$book])}} "class="text-blue-600 hover:text-blue-800">Modificar</a>
-                                    <form action="{{route('books.delete',['book'=>$book])}}" method="POST" class="inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:text-red-800 ml-2">Eliminar</button>
-                                    </form>
+                                    @if (Auth::user()->rango === 'admin')
+                                        <a href="{{route('books.edit',['book'=>$book])}} "class="text-blue-600 hover:text-blue-800">Modificar</a>
+                                        <form action="{{route('books.delete',['book'=>$book])}}" method="POST" class="inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-600 hover:text-red-800 ml-2">Eliminar</button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
